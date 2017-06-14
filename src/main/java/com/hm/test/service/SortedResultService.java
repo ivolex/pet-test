@@ -1,7 +1,7 @@
 package com.hm.test.service;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.hm.test.model.SortedResultEntity;
+import com.hm.test.model.ResultEntity;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import java.util.List;
  * Contract for Results service.
  */
 public interface SortedResultService {
-    List<SortedResultEntity> getAllRaw();
+    List<ResultEntity> getAllRaw();
 
-    List<SortedResultEntity> getAllSorted();
+    List<ResultEntity> getAllSorted();
 
     void addNew(JSONPObject entityJSONObject);
 

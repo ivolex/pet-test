@@ -1,8 +1,10 @@
 package com.hm.test.controller;
 
-import com.hm.test.model.SortedResultEntity;
+import com.hm.test.model.ResultEntity;
+import com.hm.test.model.dto.InputEntity;
 import com.hm.test.service.SortedResultService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +23,13 @@ public class HMTestController {
     private SortedResultService service;
 
     @RequestMapping(value = "/fetchAll", method = RequestMethod.GET)
-    public List<SortedResultEntity> fetchAll() {
+    public List<ResultEntity> fetchAll() {
         return service.getAllSorted();
     }
+
+    @RequestMapping(value = "/addNew", method = RequestMethod.POST)
+    public void addNew(@RequestBody InputEntity inputEntity){}
+
+    @RequestMapping(value = "/cleanup", method = RequestMethod.GET)
+    public void cleanup(@RequestBody InputEntity inputEntity){}
 }
