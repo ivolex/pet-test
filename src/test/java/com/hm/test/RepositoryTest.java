@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
-import com.hm.test.model.ResultEntity;
+import com.hm.test.model.HMEntity;
 import com.hm.test.model.ResultRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,12 +23,20 @@ public class RepositoryTest {
     private ResultRepository results;
 
     @Test
-    public void testFindByLastName() {
-        ResultEntity entity = new ResultEntity("first", 3, "last");
-        entityManager.persist(entity);
+    public void testFindAll(){
+        HMEntity entity1 = new HMEntity("first", "first");
+        HMEntity entity2 = new HMEntity("second", "second");
+        HMEntity entity3 = new HMEntity("last", "last");
 
-        List<ResultEntity> findByLastName = results.findByTimeEstimate(entity.getTimeEstimate());
+        entityManager.persist(entity1);
+        entityManager.persist(entity2);
+        entityManager.persist(entity3);
 
-        assertThat(findByLastName).extracting(ResultEntity::getTimeEstimate).containsOnly(entity.getTimeEstimate());
+        List<HMEntity> entities = (List<HMEntity>) results.findAll();
+
+        assertThat(entities).isNotEmpty();
+        assertThat(entities).contains(entity1);
+        assertThat(entities).contains(entity2);
+        assertThat(entities).contains(entity3);
     }
 }

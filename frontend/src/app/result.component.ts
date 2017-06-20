@@ -44,7 +44,7 @@ export class ResultComponent {
 
 export interface Result {
   id: number;
-  sortedArray: string;
+  dataArray: string;
   changeCount: number;
-  timeEstimate: string;
+  timestamp: string;
 }
