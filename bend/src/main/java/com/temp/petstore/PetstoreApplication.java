@@ -7,14 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PetstoreApplication {
 
     public static void main(String[] args) {
+        //todo: rest things for transport, issues, alerts (and maybe for gas station?)
         SpringApplication.run(PetstoreApplication.class, args);
-
-        DTO dto = new DTO();
-        dto.setFirstValue("First value in client");
-        dto.setSecondValue("Second value in client");
-
-        System.out.println(dto.toString());
     }
-
 }
 
